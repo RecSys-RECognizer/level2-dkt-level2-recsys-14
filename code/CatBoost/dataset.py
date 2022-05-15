@@ -226,6 +226,18 @@ def feature_engineering(df):
     # df_temp['count'] = df_temp['previous_answer_count'] - df_temp['shift_previous_answer_count']
     # df['user_recent_acc'] = (df_temp['count'] / df_temp['previous_problem_count']).fillna(0)
 
+    knowledgetags = df.KnowledgeTag
+    knowledgetag_stroke = np.zeros(knowledgetags.shape)
+
+    for i, k in enumerate(knowledgetags):
+        if i == 0:
+            continue
+
+        if k == knowledgetags[i-1]:
+            knowledgetag_stroke[i] = knowledgetag_stroke[i-1] + 1
+
+    df['knowledgetag_stroke'] = knowledgetag_stroke
+
     return df
 
 

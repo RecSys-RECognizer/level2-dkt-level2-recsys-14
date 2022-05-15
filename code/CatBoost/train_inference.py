@@ -42,8 +42,8 @@ print("train, valid set split Done! [4/7]\n")
 print("Compose data pool for CatBoost [5/7]")
 categorical_cols =  ['assessmentItemID', 'before_tag']
 TARGET_COL = 'answerCode'
-features = ['assessmentItemID', 'answerCode', 'user_acc', 'test_mean',
-                'before_tag', 'diff']
+features = ['assessmentItemID', 'answerCode', 'user_acc', 'testId', 'test_mean',
+                'before_tag', 'diff', 'user_recent_acc', 'knowledgetag_stroke']
 
 # Train Pool
 
